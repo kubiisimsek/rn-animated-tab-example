@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "example",
-    "slug": "example",
+    "name": "rn-animated-tab-example",
+    "slug": "rn-animated-tab-example",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -28,6 +28,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Example custom react-navigation bottom tab with reanimated v2",
+    "githubUrl": "https://github.com/kubiisimsek/rn-animated-tab-example"
   }
 }

@@ -40,12 +40,17 @@ const CustomTab = ({ state, descriptors, navigation }) => {
         }
     })
 
-    const getIconStyle = (ind) => {
-        return useAnimatedStyle(() => {
+    const AnimatedText = ({ children, index }) => {
+        const textStyle = useAnimatedStyle(() => {
             return {
-                color: interpolateColor(animatedValue.value, inputRange, Array(routeCount).fill(0).map((_, index) => index == ind ? "#fff" : "#aaa"))
+                color: interpolateColor(animatedValue.value, inputRange, Array(routeCount).fill(0).map((_, ind) => index == ind ? "#fff" : "#aaa"))
             }
         })
+        return (
+            <Animated.Text style={textStyle}>
+                {children}
+            </Animated.Text>
+        )
     }
 
     return (
@@ -80,9 +85,9 @@ const CustomTab = ({ state, descriptors, navigation }) => {
                             onPress={() => onTabPress(route, isFocused, index)}
                             activeOpacity={0.7}
                         >
-                            <Animated.Text style={getIconStyle(index)}>
+                            <AnimatedText index={index}>
                                 <Ionicons name={getIcon(route.name)} size={22} />
-                            </Animated.Text>
+                            </AnimatedText>
                         </TouchableOpacity>
                     )
                 })

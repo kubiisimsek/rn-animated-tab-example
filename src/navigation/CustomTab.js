@@ -10,7 +10,6 @@ const DEVICE_WIDTH = Dimensions.get("window").width
 
 const CustomTab = ({ state, descriptors, navigation }) => {
     let animatedValue = useSharedValue(0)
-    const [activeIndex, setActiveIndex] = useState(0)
     const { routes } = state
 
 
@@ -22,7 +21,6 @@ const CustomTab = ({ state, descriptors, navigation }) => {
         });
 
         if (!isFocused && !event.defaultPrevented) {
-            setActiveIndex(index)
             animatedValue.value = withTiming(index)
             navigation.navigate({ name: route.name, merge: true });
         }
